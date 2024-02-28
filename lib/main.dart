@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:instagram_clone/view/splash_screen/splash_screen.dart';
 
 void main() {
@@ -11,7 +12,7 @@ class Main extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: SplashScreeen(),
+      home: SplashScreen(),
     );
   }
 }
