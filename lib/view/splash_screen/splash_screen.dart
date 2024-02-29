@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/core/constantimages.dart';
 import 'dart:async';
 
 import 'package:instagram_clone/view/select_account_screen/selectaccountscreen.dart';
@@ -21,8 +22,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Image(image: AssetImage("assets/images/Icon.png"))),
+    return Scaffold(
+      body: Center(child: Image.asset(ImageConstants.appIcon)),
     );
   }
 }

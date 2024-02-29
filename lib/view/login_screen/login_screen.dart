@@ -3,6 +3,7 @@ import 'package:instagram_clone/core/constant_colors.dart';
 import 'package:instagram_clone/core/constantimages.dart';
 
 import 'package:instagram_clone/global_widgets/global_widgets.dart';
+import 'package:instagram_clone/view/bottom_nav_screen/bottom_nav_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -32,7 +33,7 @@ class LoginScreen extends StatelessWidget {
                                 ColorConstants.primaryBlack.withOpacity(0.2))),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                          color: ColorConstants.primaryBlack.withOpacity(0.2)),
+                          color: ColorConstants.primaryBlack.withOpacity(0.4)),
                     ),
                     fillColor: ColorConstants.primaryWhite.withOpacity(0.1),
                     hintStyle: TextStyle(
@@ -55,7 +56,7 @@ class LoginScreen extends StatelessWidget {
                                 ColorConstants.primaryBlack.withOpacity(0.2))),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                          color: ColorConstants.primaryBlack.withOpacity(0.2)),
+                          color: ColorConstants.primaryBlack.withOpacity(0.4)),
                     ),
                     fillColor: ColorConstants.primaryWhite.withOpacity(0.1),
                     hintStyle: TextStyle(
@@ -81,7 +82,15 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              CustomButton(buttonText: "Log in", onTap: () {}),
+              CustomButton(
+                  buttonText: "Log in",
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BottomNavBarScreen(),
+                        ));
+                  }),
               const SizedBox(
                 height: 37,
               ),
