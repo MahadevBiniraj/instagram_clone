@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/view/home_page/home_page.dart';
+
 import 'package:instagram_clone/view/select_account_screen/selectaccountscreen.dart';
 
 class BottomNavBarScreen extends StatefulWidget {

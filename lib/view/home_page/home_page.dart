@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/core/constant_colors.dart';
+
+import 'package:instagram_clone/core/constantimages.dart';
+import 'package:instagram_clone/view/dummydb.dart';
+import 'package:instagram_clone/view/home_page/widgets/custom_post_container.dart';
+import 'package:instagram_clone/view/home_page/widgets/custom_story_avatar.dart';
 
 class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
@@ -7,60 +11,42 @@ class Homescreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Container(
-          height: 100,
-          width: 100,
-          color: Colors.grey,
-          child: Column(
-            children: [
-              Stack(
-                alignment: AlignmentDirectional.bottomCenter,
-                children: [
-                  Container(
-                    height: 100,
-                    width: 100,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        gradient: LinearGradient(colors: [
-                          ColorConstants.noramalred,
-                          ColorConstants.noramalblue,
-                          ColorConstants.noramalyellow
-                        ])),
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle, color: Colors.cyan),
-                        child: CircleAvatar(),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                      bottom: 0,
-                      child: Container(
-                        height: 40,
-                        width: 60,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: ColorConstants.noramalred,
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Live",
-                            style: TextStyle(
-                                fontSize: 17,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w800),
-                          ),
-                        ),
-                      ))
-                ],
-              )
-            ],
-          ),
-        ),
-      ),
-    );
+        appBar: AppBar(
+            centerTitle: true,
+            leading: Icon(Icons.camera_alt),
+            title: Image.asset(
+              ImageConstants.instatext,
+              scale: 1.5,
+            ),
+            actions: [
+              IconButton(onPressed: () {}, icon: Icon(Icons.video_settings)),
+              IconButton(onPressed: () {}, icon: Icon(Icons.send))
+            ]),
+        body: Column(
+          children: [
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: List.generate(
+                    DummyDb.storyList.length,
+                    (index) => CustomStoryAvatar(
+                          proPic: DummyDb.storyList[index]["proPic"],
+                          userName: DummyDb.storyList[index]["userName"],
+                          isLive: DummyDb.storyList[index]["isLive"],
+                        )),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Custompost()
+            // ListView.builder(
+            //   scrollDirection: Axis.horizontal,
+            //   itemCount: 10,
+            //   shrinkWrap: true,
+            //   itemBuilder: (context, index) => CustomStoryAvatar(),
+            // )
+          ],
+        ));
   }
 }
